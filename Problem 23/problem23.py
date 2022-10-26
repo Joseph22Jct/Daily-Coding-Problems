@@ -49,7 +49,7 @@ def solve(board, start, end):
             if(board[currentNode.location[0]][currentNode.location[1]-1] != True):
                 if (upNode not in pathsTotake and upNode not in traveledPaths):
                     possiblePaths.append(Node(start, end, (upNode[0],upNode[1]), currentNode))
-                    pathsTotake = upNode
+                    pathsTotake.append(upNode)
 
         leftNode = [currentNode.location[0]-1, currentNode.location[0]]
         print(leftNode)
@@ -57,21 +57,21 @@ def solve(board, start, end):
             if(board[currentNode.location[0-1]][currentNode.location[1]] != True):
                 if (leftNode not in pathsTotake and leftNode not in traveledPaths):
                     possiblePaths.append(Node(start, end, (leftNode[0],leftNode[1]), currentNode))
-                    pathsTotake = leftNode
+                    pathsTotake.append(leftNode)
 
         rightNode = [currentNode.location[0]+1, currentNode.location[1]]
         if(currentNode.location[0]+1 < len(board[0])):
             if(board[currentNode.location[0]+1][currentNode.location[1]] != True):
                 if (rightNode not in pathsTotake and rightNode not in traveledPaths):
                     possiblePaths.append(Node(start, end, (rightNode[0],rightNode[1]), currentNode))
-                    pathsTotake = rightNode
+                    pathsTotake.append(rightNode)
 
         downNode = [currentNode.location[0], currentNode.location[1]+1]
         if(currentNode.location[1]+1 <len(board)):
             if(board[currentNode.location[0]][currentNode.location[1]+1] != True):
                 if (downNode not in pathsTotake and downNode not in traveledPaths):
                     possiblePaths.append(Node(start, end, (downNode[0],downNode[1]), currentNode))
-                    pathsTotake = downNode
+                    pathsTotake.append(downNode)
 
         possiblePaths = sorted(possiblePaths, key=operator.attrgetter("current"), reverse=True)
 

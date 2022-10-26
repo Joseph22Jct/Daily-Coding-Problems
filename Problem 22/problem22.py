@@ -25,15 +25,33 @@ class Trie(object):
         self.setbase = set
         for word in set:
             self.addWord(word)
-        print(str(self.letterbase))
+        #print(str(self.letterbase))
+    
+    def findWordSet(self, word):
+        currentWord = ""
+        currentTrie = self.letterbase
+        wordsToReturn = []
+        for letter in range(len(word)):
+            currentWord+=word[letter]
+            currentTrie = currentTrie[word[letter]]
+            if ("Finished" in currentTrie):
+                currentTrie = self.letterbase
+                wordsToReturn.append(currentWord)
+                currentWord = ""
+        print(str(wordsToReturn))
+        return wordsToReturn
+
+
     
 
 def solve(set, word):
     trie = Trie(set)
+    trie.findWordSet(word)
     pass
 
 def main():
     solve(["bed", "bath", "bedbath", "and", "beyond"], "bedbathandbeyond")
+    solve(['quick', 'the', 'fox',  'brown'], "thequickbrownfox")
     pass
 
 if __name__ == "__main__":

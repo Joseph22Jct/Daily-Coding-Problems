@@ -44,6 +44,7 @@ def solve(board, start, end):
     traveledPaths = [].append(currentNode.location)
     
     while(currentNode.location!=end):
+        print(currentNode.location)
         upNode = [currentNode.location[0], currentNode.location[1]-1]
         if(currentNode.location[1]-1 >=0):
             if(board[currentNode.location[0]][currentNode.location[1]-1] != True):
@@ -51,7 +52,7 @@ def solve(board, start, end):
                     possiblePaths.append(Node(start, end, (upNode[0],upNode[1]), currentNode))
                     pathsTotake.append(upNode)
 
-        leftNode = [currentNode.location[0]-1, currentNode.location[0]]
+        leftNode = [currentNode.location[0]-1, currentNode.location[1]]
         print(leftNode)
         if(currentNode.location[0]-1 >=0):
             if(board[currentNode.location[0-1]][currentNode.location[1]] != True):

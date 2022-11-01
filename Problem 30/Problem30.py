@@ -31,6 +31,7 @@ def solve(bucketList):
                 BucketWallR = (no,Val)
             
         else:
+            BucketWallR = (no, Val)
             lowestWall = BucketWallL
             if(lowestWall[1]>BucketWallR[1]):
                 lowestWall = BucketWallR

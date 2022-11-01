@@ -15,7 +15,6 @@
 def solve(bucketList):
     answer = [0 for i in range(len(bucketList))]
     bl = (list(enumerate(bucketList)))
-    
     BucketWallL = bl[0]
     BucketWallR = None
 
@@ -24,27 +23,27 @@ def solve(bucketList):
         if(no == 0):
             pass
         elif(BucketWallL[1] > Val or no >= len(bl)):
-            
+           
             if (BucketWallR == None):
                 BucketWallR = (no,Val)
-            elif(BucketWallR[1]<Val):
+            elif(BucketWallR[1]<=Val):
+                BucketWallR = (no,Val)
+            #print(str(BucketWallR))
+        else:
+            #print("works")
+            if(BucketWallR[1]<=Val):
                 BucketWallR = (no,Val)
             
-        else:
-            BucketWallR = (no, Val)
             lowestWall = BucketWallL
             if(lowestWall[1]>BucketWallR[1]):
                 lowestWall = BucketWallR
-
+            #print(str(BucketWallL) + str(BucketWallR))
             for x in range(BucketWallL[0],BucketWallR[0]):
                 if (x!= BucketWallL[0] or x!= BucketWallR[0]):
                     answer[x] = lowestWall[1]-bl[x][1]
                 else:
                     answer[x] = 0
-
             BucketWallL = (no,Val)
-            
-
     return answer
 
 def main():
@@ -53,7 +52,7 @@ def main():
     bL2R = [5,0,3,1,0,3]
     print(str(solve(bL1)))
     print(str(solve(bL2)))
-    print(str(solve(bL2R)))
+    #print(str(solve(bL2R)))
     pass
 
 if __name__ == "__main__":

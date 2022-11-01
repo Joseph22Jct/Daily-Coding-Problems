@@ -10,7 +10,15 @@
 
 def decode(stng):
     decoded = ""
-    
+    currentNo = ""
+    for letter in stng:
+        if letter.isnumeric():
+            currentNo+=letter
+        else:
+            for x in range(int(currentNo)):
+                decoded+=letter
+            currentNo=""
+
 
     return decoded
 

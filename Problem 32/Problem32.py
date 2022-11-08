@@ -8,6 +8,12 @@
 
 # There are no transaction costs and you can trade fractional quantities
 
+##Going to be working with a table that looks like this, where rows represent currency from and columns currency to
+
+# [1, 1.2, 0.6]
+# [0.8, 1, 1.3]
+# [1.4, 0.7, 1]
+
 def solve():
     pass
 

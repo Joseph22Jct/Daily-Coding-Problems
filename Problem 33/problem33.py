@@ -22,6 +22,7 @@ def solve(ls):
         print(ls[0])
     if(len(ls)>1):
         for x in range(len(ls))[1:]:
+            #print("current X: "+ str(x))
             currentList.append(ls[x])
             currentList.sort()
             if(x%2 == 1):

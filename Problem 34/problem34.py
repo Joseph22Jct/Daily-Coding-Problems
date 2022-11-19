@@ -10,8 +10,23 @@
 
 # As another example, given the string "google", you should return "elgoogle".
 
+##Maybe select a pivot letter and add to list, then return 
+def CheckForPalindrome(strng):
+    # 5 letters means 2.5... which is 0-4, 1-3 and thats it
+    letToCheck = int(len(strng)/2)
+    for x in range(letToCheck):
+        if(strng[x] != strng[-x-1]):
+            return False
+    return True
+
 def solve(strng):
+    if(CheckForPalindrome(strng)):
+        return True
+    
+
     pass
+
+
 def main():
     solve("race")
     solve("google")
